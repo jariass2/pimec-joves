@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  webapp:
+    # Construye la imagen a partir del Dockerfile en el directorio actual (.)
+    build: .
+    # Asigna un nombre descriptivo al contenedor
+    container_name: pimec-joves-webapp
+    # Mapea el puerto 8080 de tu máquina local al puerto 80 del contenedor
+    # donde Nginx está escuchando.
+    ports:
+      - "8080:80"
+    # Reinicia el contenedor automáticamente si se detiene por alguna razón
+    restart: unless-stopped

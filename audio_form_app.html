@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto Profesional - PIMEC Joves</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: oklch(0.9940 0 0);
+            --foreground: oklch(0 0 0);
+            --card: oklch(0.9940 0 0);
+            --card-foreground: oklch(0 0 0);
+            --popover: oklch(0.9911 0 0);
+            --popover-foreground: oklch(0 0 0);
+            --primary: oklch(0.3747 0 0);
+            --primary-foreground: oklch(1.0000 0 0);
+            --secondary: oklch(0.9540 0.0063 255.4755);
+            --secondary-foreground: oklch(0.1344 0 0);
+            --muted: oklch(0.9702 0 0);
+            --muted-foreground: oklch(0.4386 0 0);
+            --accent: oklch(0.9393 0.0288 266.3680);
+            --accent-foreground: oklch(0.5445 0.1903 259.4848);
+            --destructive: oklch(0.6290 0.1902 23.0704);
+            --destructive-foreground: oklch(1.0000 0 0);
+            --border: oklch(0.9300 0.0094 286.2156);
+            --input: oklch(0.9401 0 0);
+            --ring: oklch(0 0 0);
+            --radius: 1.4rem;
+            --font-sans: Roboto, sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+            --tracking-normal: -0.025em;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            letter-spacing: var(--tracking-normal);
+            background-color: var(--background);
+            color: var(--foreground);
+        }
+
+        .card {
+            background-color: var(--card);
+            color: var(--card-foreground);
+            border-radius: var(--radius);
+            box-shadow: 0px 2px 3px 0px hsl(0 0% 0% / 0.08), 0px 1px 2px -1px hsl(0 0% 0% / 0.16);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0px 2px 3px 0px hsl(0 0% 0% / 0.16), 0px 4px 6px -1px hsl(0 0% 0% / 0.16);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .input-field {
+            background-color: var(--input);
+            border: 1px solid var(--border);
+            border-radius: calc(var(--radius) - 0.5rem);
+            transition: all 0.2s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--ring);
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .recording-pulse {
+            animation: recordingPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes recordingPulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.05);
+            }
+        }
+
+        .form-step {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-delay-1 { animation-delay: 0.1s; }
+        .step-delay-2 { animation-delay: 0.2s; }
+        .step-delay-3 { animation-delay: 0.3s; }
+        .step-delay-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body class="min-h-screen py-12 px-4">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header profesional -->
+        <div class="text-center mb-8 form-step">
+            <div class="inline-flex items-center justify-center mb-4">
+                <img src="images/pimec_joves_logotip.png" alt="PIMEC Joves" class="h-32 w-auto">
+            </div>
+            <h1 class="text-3xl font-bold text-[var(--foreground)] mb-2">Solicitud de Contacto Empresarial</h1>
+            <p class="text-[var(--muted-foreground)] text-lg">Complete el formulario y grabe un mensaje personalizado</p>
+        </div>
+
+        <!-- Formulario principal -->
+        <div class="card p-8 md:p-12">
+            <form id="contactForm" class="space-y-8">
+                <!-- Información personal -->
+                <div class="space-y-6">
+                    <h2 class="text-xl font-semibold text-[var(--foreground)] border-b border-[var(--border)] pb-3">
+                        <i data-lucide="user" class="w-5 h-5 inline mr-2 text-[var(--primary)]"></i>
+                        Información de Contacto
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="form-step step-delay-1">
+                            <label for="nombre" class="block text-sm font-medium text-[var(--foreground)] mb-2">
+                                Nombre completo <span class="text-[var(--destructive)]">*</span>
+                            </label>
+                            <input type="text" id="nombre" name="nombre" required
+                                class="w-full px-4 py-3 input-field h-11"
+                                placeholder="Ingrese su nombre completo">
+                        </div>
+
+                        <div class="form-step step-delay-2">
+                            <label for="cargo" class="block text-sm font-medium text-[var(--foreground)] mb-2">
+                                Cargo / Posición
+                            </label>
+                            <input type="text" id="cargo" name="cargo"
+                                class="w-full px-4 py-3 input-field h-11"
+                                placeholder="Ej: Director de Marketing">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="form-step step-delay-3">
+                            <label for="empresa" class="block text-sm font-medium text-[var(--foreground)] mb-2">
+                                Nombre de la Empresa <span class="text-[var(--destructive)]">*</span>
+                            </label>
+                            <input type="text" id="empresa" name="empresa" required
+                                class="w-full px-4 py-3 input-field h-11"
+                                placeholder="Nombre oficial de la empresa">
+                        </div>
+
+                        <div class="form-step step-delay-4">
+                            <label for="sector" class="block text-sm font-medium text-[var(--foreground)] mb-2">
+                                Sector / Industria
+                            </label>
+                            <select id="sector" name="sector"
+                                class="w-full px-4 py-3 input-field h-11">
+                                <option value="">Seleccione un sector</option>
+                                <option value="tecnologia">Tecnología</option>
+                                <option value="manufactura">Manufactura</option>
+                                <option value="servicios">Servicios</option>
+                                <option value="retail">Retail / Comercio</option>
+                                <option value="salud">Salud</option>
+                                <option value="educacion">Educación</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="form-step">
+                            <label for="email" class="block text-sm font-medium text-[var(--foreground)] mb-2">
+                                Email corporativo <span class="text-[var(--destructive)]">*</span>
+                            </label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 input-field h-11"
+                                placeholder="ejemplo@empresa.com">
+                        </div>
+
+                        <div class="form-step">
+                            <label for="telefono" class="block text-sm font-medium text-[var(--foreground)] mb-2">
+                                Teléfono de contacto <span class="text-[var(--destructive)]">*</span>
+                            </label>
+                            <input type="tel" id="telefono" name="telefono" required
+                                class="w-full px-4 py-3 input-field h-11"
+                                placeholder="+34 XXX XXX XXX">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mensaje de audio -->
+                <div class="space-y-6">
+                    <h2 class="text-xl font-semibold text-[var(--foreground)] border-b border-[var(--border)] pb-3">
+                        <i data-lucide="mic" class="w-5 h-5 inline mr-2 text-[var(--primary)]"></i>
+                        Mensaje de Audio
+                    </h2>
+                    
+                    <div class="bg-[var(--muted)] rounded-[var(--radius)] p-6">
+                        <p class="text-[var(--muted-foreground)] mb-4">
+                            Grabe un mensaje personalizado explicando sus necesidades o consulta. 
+                            Duración máxima recomendada: 2 minutos.
+                        </p>
+                        
+                        <div class="flex flex-col items-center space-y-4">
+                            <!-- Estado inicial -->
+                            <div id="initialState" class="text-center">
+                                <button type="button" onclick="startRecording()" 
+                                    class="btn-primary px-8 py-4 rounded-[var(--radius)] font-medium flex items-center gap-3">
+                                    <i data-lucide="mic" class="w-5 h-5"></i>
+                                    Comenzar grabación
+                                </button>
+                                <p class="text-sm text-[var(--muted-foreground)] mt-2">Haz clic para grabar tu mensaje</p>
+                            </div>
+
+                            <!-- Grabando -->
+                            <div id="recordingState" class="hidden text-center">
+                                <div class="bg-red-50 border border-[var(--destructive)]/20 rounded-[var(--radius)] p-6">
+                                    <div class="flex items-center justify-center gap-3 mb-3">
+                                        <div class="w-4 h-4 bg-[var(--destructive)] rounded-full recording-pulse"></div>
+                                        <span class="text-[var(--destructive)] font-medium">Grabando...</span>
+                                    </div>
+                                    <div id="recordingTimer" class="text-2xl font-mono text-[var(--destructive)] mb-4">00:00</div>
+                                    <button type="button" onclick="stopRecording()" 
+                                        class="bg-[var(--destructive)] text-[var(--destructive-foreground)] px-6 py-3 rounded-[calc(var(--radius)-0.5rem)] font-medium flex items-center gap-2">
+                                        <i data-lucide="square" class="w-4 h-4"></i>
+                                        Detener grabación
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Audio grabado -->
+                            <div id="audioState" class="hidden w-full">
+                                <div class="bg-green-50 border border-green-200 rounded-[var(--radius)] p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="flex items-center gap-2">
+                                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600"></i>
+                                            <span class="text-green-700 font-medium">Audio grabado correctamente</span>
+                                        </div>
+                                        <button type="button" onclick="resetRecording()" 
+                                            class="text-sm text-[var(--primary)] hover:underline">
+                                            Grabar de nuevo
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="flex items-center gap-4">
+                                        <button type="button" onclick="togglePlayback()" 
+                                            class="btn-primary px-4 py-2 rounded-[calc(var(--radius)-0.5rem)] flex items-center gap-2">
+                                            <i id="playIcon" data-lucide="play" class="w-4 h-4"></i>
+                                            <span id="playButtonText">Reproducir</span>
+                                        </button>
+                                        <div class="flex-1 bg-white rounded-full h-2">
+                                            <div id="progressBar" class="bg-[var(--primary)] h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                        </div>
+                                        <span id="duration" class="text-sm text-[var(--muted-foreground)] font-mono">00:00</span>
+                                    </div>
+                                    
+                                    <audio id="audioPlayer" class="hidden"></audio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <!-- Botón de envío -->
+                <div class="text-center pt-6">
+                    <button type="submit"
+                        class="w-full md:w-auto btn-primary px-12 py-4 rounded-[var(--radius)] font-bold text-lg flex items-center justify-center gap-3 mx-auto">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                        Enviar Solicitud
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12">
+            <p class="text-sm text-[var(--muted-foreground)]">&copy; 2025 PIMEC Joves. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const initialState = document.getElementById('initialState');
+        const recordingState = document.getElementById('recordingState');
+        const audioState = document.getElementById('audioState');
+        const recordingTimer = document.getElementById('recordingTimer');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playIcon = document.getElementById('playIcon');
+        const playButtonText = document.getElementById('playButtonText');
+        const progressBar = document.getElementById('progressBar');
+        const durationEl = document.getElementById('duration');
+        const contactForm = document.getElementById('contactForm');
+
+        let mediaRecorder;
+        let audioChunks = [];
+        let timerInterval;
+        let audioBlob;
+
+        async function startRecording() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+                
+                mediaRecorder.ondataavailable = event => {
+                    audioChunks.push(event.data);
+                };
+
+                mediaRecorder.onstop = () => {
+                    audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                    const audioUrl = URL.createObjectURL(audioBlob);
+                    audioPlayer.src = audioUrl;
+                    audioChunks = [];
+                    updateDuration(audioPlayer);
+                };
+
+                mediaRecorder.start();
+                updateUI('recording');
+                startTimer();
+
+            } catch (error) {
+                console.error('Error accessing microphone:', error);
+                alert('No se pudo acceder al micrófono. Asegúrese de haber otorgado los permisos necesarios.');
+            }
+        }
+
+        function stopRecording() {
+            mediaRecorder.stop();
+            clearInterval(timerInterval);
+            updateUI('recorded');
+        }
+
+        function resetRecording() {
+            audioBlob = null;
+            audioPlayer.src = '';
+            progressBar.style.width = '0%';
+            updateUI('initial');
+        }
+
+        function togglePlayback() {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playIcon.setAttribute('data-lucide', 'pause');
+                playButtonText.textContent = 'Pausar';
+            } else {
+                audioPlayer.pause();
+                playIcon.setAttribute('data-lucide', 'play');
+                playButtonText.textContent = 'Reproducir';
+            }
+            lucide.createIcons();
+        }
+        
+        audioPlayer.addEventListener('timeupdate', () => {
+            const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+        });
+
+        audioPlayer.addEventListener('ended', () => {
+            playIcon.setAttribute('data-lucide', 'play');
+            playButtonText.textContent = 'Reproducir';
+            progressBar.style.width = '0%';
+            lucide.createIcons();
+        });
+        
+        function updateUI(state) {
+            initialState.classList.toggle('hidden', state !== 'initial');
+            recordingState.classList.toggle('hidden', state !== 'recording');
+            audioState.classList.toggle('hidden', state !== 'recorded');
+        }
+
+        function startTimer() {
+            let seconds = 0;
+            timerInterval = setInterval(() => {
+                seconds++;
+                const minutes = Math.floor(seconds / 60).toString().padStart(2, '0');
+                const secs = (seconds % 60).toString().padStart(2, '0');
+                recordingTimer.textContent = `${minutes}:${secs}`;
+            }, 1000);
+        }
+
+        function updateDuration(player) {
+            player.onloadedmetadata = () => {
+                const minutes = Math.floor(player.duration / 60).toString().padStart(2, '0');
+                const seconds = Math.floor(player.duration % 60).toString().padStart(2, '0');
+                durationEl.textContent = `${minutes}:${seconds}`;
+            };
+        }
+
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            if (!contactForm.checkValidity()) {
+                alert('Por favor, complete todos los campos obligatorios.');
+                return;
+            }
+
+            if (!audioBlob) {
+                alert('Por favor, grabe un mensaje de audio antes de enviar el formulario.');
+                return;
+            }
+
+            const formData = new FormData(contactForm);
+            formData.append('audio', audioBlob, 'grabacion.wav');
+
+            const webhookUrl = 'https://n8n.multiplai.org/webhook/pimec_joves';
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+            
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Enviando...
+            `;
+
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    document.body.innerHTML = `
+                        <div class="min-h-screen flex items-center justify-center">
+                            <div class="text-center space-y-4 p-4">
+                                <i data-lucide="check-circle" class="w-16 h-16 text-green-500 mx-auto"></i>
+                                <h1 class="text-3xl font-bold">¡Formulario enviado con éxito!</h1>
+                                <p class="text-lg text-[var(--muted-foreground)]">Gracias por contactarnos. Nos pondremos en contacto con usted a la brevedad.</p>
+                                <button onclick="location.reload()" class="btn-primary px-6 py-3 rounded-[var(--radius)] font-medium">Enviar otro formulario</button>
+                            </div>
+                        </div>
+                    `;
+                    lucide.createIcons();
+                } else {
+                    const errorText = await response.text();
+                    console.error('Error al enviar el formulario:', response.status, errorText);
+                    alert(`Hubo un error al enviar el formulario: ${response.status}. Por favor, inténtelo de nuevo.`);
+                    // Restore button
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                }
+            } catch (error) {
+                console.error('Error de red:', error);
+                alert('Hubo un error de red. Por favor, verifique su conexión e inténtelo de nuevo.');
+                // Restore button
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonText;
+            }
+        });
+    </script>
+</body>
+</html>

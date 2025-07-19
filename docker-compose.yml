@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   webapp:
     # Construye la imagen a partir del Dockerfile en el directorio actual (.)

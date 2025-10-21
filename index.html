@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Contacto Profesional - PIMEC Joves</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --background: oklch(0.9940 0 0);
@@ -81,10 +83,13 @@
         }
 
         @keyframes recordingPulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 1;
                 transform: scale(1);
             }
+
             50% {
                 opacity: 0.7;
                 transform: scale(1.05);
@@ -104,12 +109,24 @@
             }
         }
 
-        .step-delay-1 { animation-delay: 0.1s; }
-        .step-delay-2 { animation-delay: 0.2s; }
-        .step-delay-3 { animation-delay: 0.3s; }
-        .step-delay-4 { animation-delay: 0.4s; }
+        .step-delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .step-delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .step-delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .step-delay-4 {
+            animation-delay: 0.4s;
+        }
     </style>
 </head>
+
 <body class="min-h-screen py-12 px-4">
     <div class="max-w-4xl mx-auto">
         <!-- Header profesional -->
@@ -117,8 +134,9 @@
             <div class="inline-flex items-center justify-center mb-4">
                 <img src="images/pimec_joves_logotip.png" alt="PIMEC Joves" class="h-32 w-auto">
             </div>
-            <h1 class="text-3xl font-bold text-[var(--foreground)] mb-2">Solicitud de Contacto Empresarial</h1>
-            <p class="text-[var(--muted-foreground)] text-lg">Complete el formulario y grabe un mensaje personalizado</p>
+            <h1 class="text-3xl font-bold text-[var(--foreground)] mb-2">Sol·licitud de contacte empresarial</h1>
+            <p class="text-[var(--muted-foreground)] text-lg">completa el formulari i grava un missatge personalitzat
+            </p>
         </div>
 
         <!-- Formulario principal -->
@@ -128,74 +146,51 @@
                 <div class="space-y-6">
                     <h2 class="text-xl font-semibold text-[var(--foreground)] border-b border-[var(--border)] pb-3">
                         <i data-lucide="user" class="w-5 h-5 inline mr-2 text-[var(--primary)]"></i>
-                        Información de Contacto
+                        Informació de Contacte
                     </h2>
-                    
+
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="form-step step-delay-1">
                             <label for="nombre" class="block text-sm font-medium text-[var(--foreground)] mb-2">
-                                Nombre completo <span class="text-[var(--destructive)]">*</span>
+                                Nom i cognom: <span class="text-[var(--destructive)]">*</span>
                             </label>
                             <input type="text" id="nombre" name="nombre" required
-                                class="w-full px-4 py-3 input-field h-11"
-                                placeholder="Ingrese su nombre completo">
+                                class="w-full px-4 py-3 input-field h-11" placeholder="El teu nom i cognom">
                         </div>
 
                         <div class="form-step step-delay-2">
-                            <label for="cargo" class="block text-sm font-medium text-[var(--foreground)] mb-2">
-                                Cargo / Posición
+                            <label for="linkedin" class="block text-sm font-medium text-[var(--foreground)] mb-2">
+                                Perfil personal de LinkedIn: <span class="text-[var(--destructive)]">*</span>
                             </label>
-                            <input type="text" id="cargo" name="cargo"
-                                class="w-full px-4 py-3 input-field h-11"
-                                placeholder="Ej: Director de Marketing">
+                            <input type="url" id="linkedin" name="linkedin" required class="w-full px-4 py-3 input-field h-11"
+                                placeholder="https://www.linkedin.com/in/el-teu-perfil">
                         </div>
                     </div>
 
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="form-step step-delay-3">
-                            <label for="empresa" class="block text-sm font-medium text-[var(--foreground)] mb-2">
-                                Nombre de la Empresa <span class="text-[var(--destructive)]">*</span>
+                            <label for="web" class="block text-sm font-medium text-[var(--foreground)] mb-2">
+                                Web empresa: <span class="text-[var(--destructive)]">*</span>
                             </label>
-                            <input type="text" id="empresa" name="empresa" required
-                                class="w-full px-4 py-3 input-field h-11"
-                                placeholder="Nombre oficial de la empresa">
+                            <input type="url" id="web" name="web" required
+                                class="w-full px-4 py-3 input-field h-11" placeholder="https://www.la-teva-empresa.com">
                         </div>
 
                         <div class="form-step step-delay-4">
-                            <label for="sector" class="block text-sm font-medium text-[var(--foreground)] mb-2">
-                                Sector / Industria
+                            <label for="email" class="block text-sm font-medium text-[var(--foreground)] mb-2">
+                                Mail corporatiu: <span class="text-[var(--destructive)]">*</span>
                             </label>
-                            <select id="sector" name="sector"
-                                class="w-full px-4 py-3 input-field h-11">
-                                <option value="">Seleccione un sector</option>
-                                <option value="tecnologia">Tecnología</option>
-                                <option value="manufactura">Manufactura</option>
-                                <option value="servicios">Servicios</option>
-                                <option value="retail">Retail / Comercio</option>
-                                <option value="salud">Salud</option>
-                                <option value="educacion">Educación</option>
-                                <option value="otro">Otro</option>
-                            </select>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 input-field h-11" placeholder="el-teu-correu@empresa.com">
                         </div>
                     </div>
 
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="form-step">
-                            <label for="email" class="block text-sm font-medium text-[var(--foreground)] mb-2">
-                                Email corporativo <span class="text-[var(--destructive)]">*</span>
+                    <div class="form-step">
+                        <div class="flex items-center">
+                            <input id="permiso" name="permiso" type="checkbox" required class="h-4 w-4 text-[var(--primary)] focus:ring-[var(--primary)] border-[var(--border)] rounded">
+                            <label for="permiso" class="ml-2 block text-sm text-[var(--foreground)]">
+                                Dono permís per enviar les dades de contacte als potencials contactes detectats. <span class="text-[var(--destructive)]">*</span>
                             </label>
-                            <input type="email" id="email" name="email" required
-                                class="w-full px-4 py-3 input-field h-11"
-                                placeholder="ejemplo@empresa.com">
-                        </div>
-
-                        <div class="form-step">
-                            <label for="telefono" class="block text-sm font-medium text-[var(--foreground)] mb-2">
-                                Teléfono de contacto <span class="text-[var(--destructive)]">*</span>
-                            </label>
-                            <input type="tel" id="telefono" name="telefono" required
-                                class="w-full px-4 py-3 input-field h-11"
-                                placeholder="+34 XXX XXX XXX">
                         </div>
                     </div>
                 </div>
@@ -204,38 +199,45 @@
                 <div class="space-y-6">
                     <h2 class="text-xl font-semibold text-[var(--foreground)] border-b border-[var(--border)] pb-3">
                         <i data-lucide="mic" class="w-5 h-5 inline mr-2 text-[var(--primary)]"></i>
-                        Mensaje de Audio
+                        Missatge d'audio
                     </h2>
-                    
+
                     <div class="bg-[var(--muted)] rounded-[var(--radius)] p-6">
                         <p class="text-[var(--muted-foreground)] mb-4">
-                            Grabe un mensaje personalizado explicando sus necesidades o consulta. 
-                            Duración máxima recomendada: 2 minutos.
+                            Grava un missatge d'àudio personalitzat responent a aquestes dues preguntes:
+                            Duració màxima recomanada 2 minuts.
+                            Què ofereixes, a què et dediques?
+                            Què busques, que necessites?
                         </p>
-                        
+
                         <div class="flex flex-col items-center space-y-4">
                             <!-- Estado inicial -->
                             <div id="initialState" class="text-center">
-                                <button type="button" onclick="startRecording()" 
+                                <button type="button" onclick="startRecording()"
                                     class="btn-primary px-8 py-4 rounded-[var(--radius)] font-medium flex items-center gap-3">
                                     <i data-lucide="mic" class="w-5 h-5"></i>
-                                    Comenzar grabación
+                                    Començar grabació
                                 </button>
-                                <p class="text-sm text-[var(--muted-foreground)] mt-2">Haz clic para grabar tu mensaje</p>
+                                <p class="text-sm text-[var(--muted-foreground)] mt-2">Fes clic per a gravar el teu
+                                    missatge
+
+                                </p>
                             </div>
 
                             <!-- Grabando -->
                             <div id="recordingState" class="hidden text-center">
-                                <div class="bg-red-50 border border-[var(--destructive)]/20 rounded-[var(--radius)] p-6">
+                                <div
+                                    class="bg-red-50 border border-[var(--destructive)]/20 rounded-[var(--radius)] p-6">
                                     <div class="flex items-center justify-center gap-3 mb-3">
                                         <div class="w-4 h-4 bg-[var(--destructive)] rounded-full recording-pulse"></div>
-                                        <span class="text-[var(--destructive)] font-medium">Grabando...</span>
+                                        <span class="text-[var(--destructive)] font-medium">Grabant...</span>
                                     </div>
-                                    <div id="recordingTimer" class="text-2xl font-mono text-[var(--destructive)] mb-4">00:00</div>
-                                    <button type="button" onclick="stopRecording()" 
+                                    <div id="recordingTimer" class="text-2xl font-mono text-[var(--destructive)] mb-4">
+                                        00:00</div>
+                                    <button type="button" onclick="stopRecording()"
                                         class="bg-[var(--destructive)] text-[var(--destructive-foreground)] px-6 py-3 rounded-[calc(var(--radius)-0.5rem)] font-medium flex items-center gap-2">
                                         <i data-lucide="square" class="w-4 h-4"></i>
-                                        Detener grabación
+                                        Detenir grabació
                                     </button>
                                 </div>
                             </div>
@@ -246,26 +248,29 @@
                                     <div class="flex items-center justify-between mb-4">
                                         <div class="flex items-center gap-2">
                                             <i data-lucide="check-circle" class="w-5 h-5 text-green-600"></i>
-                                            <span class="text-green-700 font-medium">Audio grabado correctamente</span>
+                                            <span class="text-green-700 font-medium">Audio grabat correctament</span>
                                         </div>
-                                        <button type="button" onclick="resetRecording()" 
+                                        <button type="button" onclick="resetRecording()"
                                             class="text-sm text-[var(--primary)] hover:underline">
                                             Grabar de nuevo
                                         </button>
                                     </div>
-                                    
+
                                     <div class="flex items-center gap-4">
-                                        <button type="button" onclick="togglePlayback()" 
+                                        <button type="button" onclick="togglePlayback()"
                                             class="btn-primary px-4 py-2 rounded-[calc(var(--radius)-0.5rem)] flex items-center gap-2">
                                             <i id="playIcon" data-lucide="play" class="w-4 h-4"></i>
-                                            <span id="playButtonText">Reproducir</span>
+                                            <span id="playButtonText">Reproduir</span>
                                         </button>
                                         <div class="flex-1 bg-white rounded-full h-2">
-                                            <div id="progressBar" class="bg-[var(--primary)] h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                            <div id="progressBar"
+                                                class="bg-[var(--primary)] h-2 rounded-full transition-all duration-300"
+                                                style="width: 0%"></div>
                                         </div>
-                                        <span id="duration" class="text-sm text-[var(--muted-foreground)] font-mono">00:00</span>
+                                        <span id="duration"
+                                            class="text-sm text-[var(--muted-foreground)] font-mono">00:00</span>
                                     </div>
-                                    
+
                                     <audio id="audioPlayer" class="hidden"></audio>
                                 </div>
                             </div>
@@ -273,7 +278,7 @@
                     </div>
                 </div>
 
-                
+
 
                 <!-- Botón de envío -->
                 <div class="text-center pt-6">
@@ -288,7 +293,8 @@
 
         <!-- Footer -->
         <footer class="text-center mt-12">
-            <p class="text-sm text-[var(--muted-foreground)]">&copy; 2025 PIMEC Joves. Todos los derechos reservados.</p>
+            <p class="text-sm text-[var(--muted-foreground)]">&copy; 2025 PIMEC Joves. Todos los derechos reservados.
+            </p>
         </footer>
     </div>
 
@@ -311,11 +317,11 @@
         let timerInterval;
         let audioBlob;
 
-        async function startRecording() {
+        async function startRecording () {
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
                 mediaRecorder = new MediaRecorder(stream);
-                
+
                 mediaRecorder.ondataavailable = event => {
                     audioChunks.push(event.data);
                 };
@@ -338,20 +344,20 @@
             }
         }
 
-        function stopRecording() {
+        function stopRecording () {
             mediaRecorder.stop();
             clearInterval(timerInterval);
             updateUI('recorded');
         }
 
-        function resetRecording() {
+        function resetRecording () {
             audioBlob = null;
             audioPlayer.src = '';
             progressBar.style.width = '0%';
             updateUI('initial');
         }
 
-        function togglePlayback() {
+        function togglePlayback () {
             if (audioPlayer.paused) {
                 audioPlayer.play();
                 playIcon.setAttribute('data-lucide', 'pause');
@@ -363,7 +369,7 @@
             }
             lucide.createIcons();
         }
-        
+
         audioPlayer.addEventListener('timeupdate', () => {
             const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
             progressBar.style.width = `${progress}%`;
@@ -375,14 +381,14 @@
             progressBar.style.width = '0%';
             lucide.createIcons();
         });
-        
-        function updateUI(state) {
+
+        function updateUI (state) {
             initialState.classList.toggle('hidden', state !== 'initial');
             recordingState.classList.toggle('hidden', state !== 'recording');
             audioState.classList.toggle('hidden', state !== 'recorded');
         }
 
-        function startTimer() {
+        function startTimer () {
             let seconds = 0;
             timerInterval = setInterval(() => {
                 seconds++;
@@ -392,7 +398,7 @@
             }, 1000);
         }
 
-        function updateDuration(player) {
+        function updateDuration (player) {
             player.onloadedmetadata = () => {
                 const minutes = Math.floor(player.duration / 60).toString().padStart(2, '0');
                 const seconds = Math.floor(player.duration % 60).toString().padStart(2, '0');
@@ -402,7 +408,7 @@
 
         contactForm.addEventListener('submit', async (event) => {
             event.preventDefault();
-            
+
             if (!contactForm.checkValidity()) {
                 alert('Por favor, complete todos los campos obligatorios.');
                 return;
@@ -419,7 +425,7 @@
             const webhookUrl = 'https://n8n.multiplai.org/webhook/pimec_joves';
             const submitButton = contactForm.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.innerHTML;
-            
+
             // Disable button and show loading state
             submitButton.disabled = true;
             submitButton.innerHTML = `
@@ -466,4 +472,5 @@
         });
     </script>
 </body>
+
 </html>
